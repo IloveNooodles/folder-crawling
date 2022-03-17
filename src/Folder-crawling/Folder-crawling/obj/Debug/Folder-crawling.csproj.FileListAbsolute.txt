@@ -13,3 +13,4 @@ D:\Coding\folder-crawling\src\Folder-crawling\Folder-crawling\obj\Debug\Folder-c
 D:\Coding\folder-crawling\src\Folder-crawling\Folder-crawling\obj\Debug\Folder-crawling.csproj.CopyComplete
 D:\Coding\folder-crawling\src\Folder-crawling\Folder-crawling\obj\Debug\Folder-crawling.exe
 D:\Coding\folder-crawling\src\Folder-crawling\Folder-crawling\obj\Debug\Folder-crawling.pdb
+D:\Coding\folder-crawling\src\Folder-crawling\Folder-crawling\obj\Debug\Folder_crawling.Form1.resources

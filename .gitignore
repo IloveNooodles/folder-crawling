@@ -1,0 +1,5 @@
+/src/Folder-crawling/Folder-crawling/bin
+/src/Folder-crawling/Folder-crawling/obj
+
+*.exe
+*.cache

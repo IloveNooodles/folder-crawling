@@ -51,7 +51,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(279, 9);
+            this.label1.Location = new System.Drawing.Point(501, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(242, 37);
             this.label1.TabIndex = 0;
@@ -63,7 +63,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(553, 81);
+            this.label2.Location = new System.Drawing.Point(869, 81);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(77, 26);
             this.label2.TabIndex = 1;
@@ -74,7 +74,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(134, 81);
+            this.label3.Location = new System.Drawing.Point(147, 81);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(60, 26);
             this.label3.TabIndex = 2;
@@ -89,7 +89,7 @@
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(-120, 69);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(495, 423);
+            this.listView1.Size = new System.Drawing.Size(464, 506);
             this.listView1.TabIndex = 3;
             this.listView1.UseCompatibleStateImageBehavior = false;
             // 
@@ -99,9 +99,9 @@
             this.listView2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listView2.Cursor = System.Windows.Forms.Cursors.Default;
             this.listView2.HideSelection = false;
-            this.listView2.Location = new System.Drawing.Point(353, 69);
+            this.listView2.Location = new System.Drawing.Point(326, 69);
             this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(495, 423);
+            this.listView2.Size = new System.Drawing.Size(973, 520);
             this.listView2.TabIndex = 4;
             this.listView2.UseCompatibleStateImageBehavior = false;
             // 
@@ -109,7 +109,7 @@
             // 
             this.button1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.button1.Location = new System.Drawing.Point(80, 217);
+            this.button1.Location = new System.Drawing.Point(94, 252);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(165, 40);
             this.button1.TabIndex = 5;
@@ -123,7 +123,7 @@
             this.checkBox1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.checkBox1.Location = new System.Drawing.Point(37, 272);
+            this.checkBox1.Location = new System.Drawing.Point(37, 341);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(114, 17);
             this.checkBox1.TabIndex = 6;
@@ -135,7 +135,7 @@
             // 
             this.button2.BackColor = System.Drawing.Color.BlueViolet;
             this.button2.ForeColor = System.Drawing.Color.Transparent;
-            this.button2.Location = new System.Drawing.Point(225, 378);
+            this.button2.Location = new System.Drawing.Point(209, 496);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(95, 50);
             this.button2.TabIndex = 7;
@@ -148,7 +148,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label4.Location = new System.Drawing.Point(34, 124);
+            this.label4.Location = new System.Drawing.Point(34, 140);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(81, 13);
             this.label4.TabIndex = 8;
@@ -157,7 +157,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(37, 140);
+            this.textBox1.Location = new System.Drawing.Point(37, 164);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(119, 20);
             this.textBox1.TabIndex = 9;
@@ -168,7 +168,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label5.Location = new System.Drawing.Point(34, 191);
+            this.label5.Location = new System.Drawing.Point(35, 225);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(122, 13);
             this.label5.TabIndex = 10;
@@ -180,7 +180,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label6.Location = new System.Drawing.Point(35, 302);
+            this.label6.Location = new System.Drawing.Point(35, 384);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(80, 13);
             this.label6.TabIndex = 11;
@@ -190,7 +190,7 @@
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(37, 318);
+            this.radioButton1.Location = new System.Drawing.Point(38, 409);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(45, 17);
             this.radioButton1.TabIndex = 12;
@@ -201,7 +201,7 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(106, 318);
+            this.radioButton2.Location = new System.Drawing.Point(105, 409);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(46, 17);
             this.radioButton2.TabIndex = 13;
@@ -214,9 +214,9 @@
             this.treeView1.BackColor = System.Drawing.SystemColors.HotTrack;
             this.treeView1.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.treeView1.LineColor = System.Drawing.Color.BlanchedAlmond;
-            this.treeView1.Location = new System.Drawing.Point(395, 113);
+            this.treeView1.Location = new System.Drawing.Point(508, 140);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(383, 315);
+            this.treeView1.Size = new System.Drawing.Size(746, 406);
             this.treeView1.TabIndex = 14;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
@@ -225,7 +225,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1339, 568);
             this.Controls.Add(this.treeView1);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
