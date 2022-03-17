@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Msagl.Drawing;
+using Microsoft.Msagl.GraphViewerGdi;
 
 namespace Folder_crawling
 {
@@ -13,57 +15,62 @@ namespace Folder_crawling
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        static void Main(string[] args)
         {
-            //Application.EnableVisualStyles();
-            //Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Form1());
-            //create a form
-            //System.Windows.Forms.Form form = new System.Windows.Forms.Form();
+            //create a form 
+            Form form = new Form();
             //create a viewer object
-            //Microsoft.Msagl.GraphViewerGdi.GViewer viewer = new
-            //Microsoft.Msagl.GraphViewerGdi.GViewer();
-            //create a graph object
-            //Microsoft.Msagl.Drawing.Graph graph = new
-            //Microsoft.Msagl.Drawing.Graph("graph");
-            //create the graph content
-            //graph.AddEdge("A", "B");
-            // graph.AddEdge("B", "C");
-            // graph.AddEdge("A", "C").Attr.Color = Microsoft.Msagl.Drawing.Color.Green;
-            // graph.FindNode("A").Attr.FillColor =
-            //Microsoft.Msagl.Drawing.Color.Magenta;
-            //graph.FindNode("B").Attr.FillColor =
-            //Microsoft.Msagl.Drawing.Color.MistyRose;
-            // Microsoft.Msagl.Drawing.Node c = graph.FindNode("C");
-            //c.Attr.FillColor = Microsoft.Msagl.Drawing.Color.PaleGreen;
-            //c.Attr.Shape = Microsoft.Msagl.Drawing.Shape.Diamond;
-            //bind the graph to the viewer
-            //viewer.Graph = graph;
-            //associate the viewer with the form
-            //form.SuspendLayout();
-            //viewer.Dock = System.Windows.Forms.DockStyle.Fill;
-            //form.Controls.Add(viewer);
-            //form.ResumeLayout();
-            //show the form
-            //form.ShowDialog();
-            Directory.GetCurrentDirectory();
+            GViewer viewer = new GViewer();
+            //create a graph object 
+            Graph graph = new Graph("graph");
+            DFS(args[0], graph);
+        }
 
-            Console.WriteLine(Directory.GetCurrentDirectory());
-
-            Graph g = new Graph(4);
-
-            g.AddEdge(0, 1);
-            g.AddEdge(0, 2);
-            g.AddEdge(1, 2);
-            g.AddEdge(2, 0);
-            g.AddEdge(2, 3);
-            g.AddEdge(3, 3);
-
-            Console.WriteLine(
-                "Following is Depth First Traversal "
-                + "(starting from vertex 2)");
-
-            g.DFS(2);
+        public static void BFS(string root, Graph g)
+        {
+            Stack<string> dir = new Stack<string>(50);
+            if (!Directory.Exists(root))
+            {
+                throw new ArgumentException();
+            }
+            dir.Push(root);
+            while (dir.Count > 0)
+            {
+                string cur = dir.Pop();
+                string[] sub;
+                sub = Directory.GetDirectories(cur);
+                string[] files;
+                files = Directory.GetFiles(cur);
+                foreach (string file in files)
+                {
+                    g.AddEdge(root, file);
+                }
+                foreach (string a in sub)
+                {
+                    g.AddEdge(root, a);
+                    dir.Push(a);
+                }
+            }
+        }
+        public static void DFS(string root, Graph graph)
+        {
+            if (!System.IO.Directory.Exists(root))
+            {
+                throw new ArgumentException();
+            }
+            string[] sub;
+            sub = Directory.GetDirectories(root);
+            foreach (string a in sub)
+            {
+                graph.AddEdge(root, a);
+                DFS(a, graph);
+            }
+            string[] files;
+            files = Directory.GetFiles(root);
+            foreach (string file in files)
+            {
+                graph.AddEdge(root, file);
+            }
         }
     }
 }

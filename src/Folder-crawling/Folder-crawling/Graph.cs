@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Folder_crawling
 {
-    internal class Graph
+    internal class G
     {
         private int vertices;
         private List<int>[] adj;
         private List<int> solution;
 
-        public Graph(int vertices)
+        public G(int vertices)
         {
             this.vertices = vertices;
             adj = new List<int>[vertices];
