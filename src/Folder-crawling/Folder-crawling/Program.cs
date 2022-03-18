@@ -15,46 +15,53 @@ namespace Folder_crawling
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main(string[] args)
+        static void Main()
         {
-            //create a form 
-            Form form = new Form();
-            //create a viewer object
-            GViewer viewer = new GViewer();
-            //create a graph object 
+            //Form form = new Form();
+            //GViewer viewer = new GViewer();
             Graph graph = new Graph("graph");
-            DFS(args[0], graph);
+            string args = Console.ReadLine();
+            string target = Console.ReadLine();
+            DFS(args, graph);
+            Console.WriteLine("\n");
+            BFS(args, target, graph);
+            Console.ReadKey();
         }
 
-        public static void BFS(string root, Graph g)
+        public static void BFS(string root,string target, Graph g)
         {
-            Stack<string> dir = new Stack<string>(50);
+            Queue<string> dir = new Queue<string>(50);
             if (!Directory.Exists(root))
             {
                 throw new ArgumentException();
             }
-            dir.Push(root);
+            dir.Enqueue(root);
             while (dir.Count > 0)
             {
-                string cur = dir.Pop();
+                string cur = dir.Dequeue();
                 string[] sub;
                 sub = Directory.GetDirectories(cur);
                 string[] files;
                 files = Directory.GetFiles(cur);
                 foreach (string file in files)
                 {
-                    g.AddEdge(root, file);
+                    Console.WriteLine(file);
+                    FileInfo fi = new FileInfo(file);
+                    if (fi.Name == target)
+                    {
+                        Console.WriteLine("File ditemukan");
+                        return;
+                    }
                 }
                 foreach (string a in sub)
                 {
-                    g.AddEdge(root, a);
-                    dir.Push(a);
+                    dir.Enqueue(a);
                 }
             }
         }
         public static void DFS(string root, Graph graph)
         {
-            if (!System.IO.Directory.Exists(root))
+            if (!Directory.Exists(root))
             {
                 throw new ArgumentException();
             }
@@ -62,14 +69,13 @@ namespace Folder_crawling
             sub = Directory.GetDirectories(root);
             foreach (string a in sub)
             {
-                graph.AddEdge(root, a);
                 DFS(a, graph);
             }
             string[] files;
             files = Directory.GetFiles(root);
             foreach (string file in files)
             {
-                graph.AddEdge(root, file);
+                Console.WriteLine(file);
             }
         }
     }
