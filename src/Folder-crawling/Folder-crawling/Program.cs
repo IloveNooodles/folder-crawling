@@ -24,7 +24,7 @@ namespace Folder_crawling
             string args = Console.ReadLine();
             string target = Console.ReadLine();
             Boolean found = false;
-            BFS(args, target, graph);
+            DFS(args, target, graph, ref found);
             
             viewer.Graph = graph;
             form.SuspendLayout();
@@ -54,18 +54,19 @@ namespace Folder_crawling
                 foreach (string file in files)
                 {
                     FileInfo fi = new FileInfo(file);
-                    g.AddEdge(ro.Name, fi.Name).Attr.Color = Color.Red;
-                    g.FindNode(ro.Name).Attr.Color = Color.Red;
-                    g.FindNode(fi.Name).Attr.Color = Color.Red;
+                    changeLabel(g, cur, file);
                     if (fi.Name == target)
                     {
+                        g.FindNode(file).Attr.Color = Color.Green;
                         return;
                     }
                 }
                 foreach (string a in sub)
                 {
                     DirectoryInfo fo = new DirectoryInfo(a);
-                    g.AddEdge(ro.Name, fo.Name);
+                    g.AddEdge(cur, a);
+                    g.FindNode(cur).LabelText = ro.Name;
+                    g.FindNode(a).LabelText = fo.Name;
                     dir.Enqueue(a);
                 }
             }
@@ -81,7 +82,6 @@ namespace Folder_crawling
             {
                 return;
             }
-            DirectoryInfo ro = new DirectoryInfo(root);
             string[] sub;
             sub = Directory.GetDirectories(root);
             foreach (string a in sub)
@@ -90,27 +90,37 @@ namespace Folder_crawling
                 {
                     return;
                 }
-                DirectoryInfo fo = new DirectoryInfo(a);
-                graph.AddEdge(ro.Name, fo.Name).Attr.Color = Color.Red;
-                graph.FindNode(fo.Name).Attr.Color = Color.Red;
-                graph.FindNode(ro.Name).Attr.Color = Color.Red;
+                changeLabel(graph, root, a);
                 DFS(a, target, graph, ref search);
             }
             string[] files;
             files = Directory.GetFiles(root);
             foreach (string file in files)
             {
+                if (search)
+                {
+                    return;
+                }
                 FileInfo fi = new FileInfo(file);
-                graph.AddEdge(ro.Name, fi.Name).Attr.Color = Color.Red;
-                graph.FindNode(ro.Name).Attr.Color = Color.Red;
-                graph.FindNode(fi.Name).Attr.Color = Color.Red;
+                changeLabel(graph, root, file);
                 if (fi.Name == target)
                 {
+                    graph.FindNode(file).Attr.Color = Color.Green;
                     ans = file;
                     search = true;
                     break;
                 }
             }
+        }
+        public static void changeLabel(Graph g, string src, string target)
+        {
+            FileInfo _src = new FileInfo(src);
+            FileInfo _target = new FileInfo(target);
+            g.AddEdge(src, target).Attr.Color = Color.Red;
+            g.FindNode(src).Attr.Color = Color.Red;
+            g.FindNode(target).Attr.Color = Color.Red;
+            g.FindNode(src).LabelText = _src.Name;
+            g.FindNode(target).LabelText = _target.Name;
         }
     }
 }
