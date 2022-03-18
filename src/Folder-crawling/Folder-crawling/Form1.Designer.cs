@@ -69,6 +69,10 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Output";
             // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -92,6 +96,7 @@
             this.listView1.Size = new System.Drawing.Size(464, 506);
             this.listView1.TabIndex = 3;
             this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // listView2
             // 
@@ -99,15 +104,17 @@
             this.listView2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listView2.Cursor = System.Windows.Forms.Cursors.Default;
             this.listView2.HideSelection = false;
-            this.listView2.Location = new System.Drawing.Point(326, 69);
+            this.listView2.Location = new System.Drawing.Point(343, 69);
             this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(973, 520);
+            this.listView2.Size = new System.Drawing.Size(956, 506);
             this.listView2.TabIndex = 4;
             this.listView2.UseCompatibleStateImageBehavior = false;
+            this.listView2.SelectedIndexChanged += new System.EventHandler(this.listView2_SelectedIndexChanged);
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.button1.Location = new System.Drawing.Point(94, 252);
             this.button1.Name = "button1";
@@ -162,6 +169,7 @@
             this.textBox1.Size = new System.Drawing.Size(119, 20);
             this.textBox1.TabIndex = 9;
             this.textBox1.Text = "Your file";
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
             // 
             // label5
             // 
