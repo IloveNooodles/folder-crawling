@@ -20,10 +20,12 @@ namespace Folder_crawling
             Form form = new Form();
             GViewer viewer = new GViewer();
             Graph graph = new Graph("graph");
+
             string args = Console.ReadLine();
             string target = Console.ReadLine();
-            BFS(args, target, graph);
-            Console.ReadKey();
+            Boolean found = false;
+            DFS(args, target, graph, ref found);
+            
             viewer.Graph = graph;
             form.SuspendLayout();
             viewer.Dock = DockStyle.Fill;
@@ -66,25 +68,40 @@ namespace Folder_crawling
                 }
             }
         }
-        public static void DFS(string root, Graph graph)
+        public static void DFS(string root, string target, Graph graph, ref Boolean search)
         {
             if (!Directory.Exists(root))
             {
                 throw new ArgumentException();
             }
+            if (search)
+            {
+                return;
+            }
+            DirectoryInfo ro = new DirectoryInfo(root);
             string[] sub;
             sub = Directory.GetDirectories(root);
             foreach (string a in sub)
             {
-                graph.AddEdge(root, a);
-                DFS(a, graph);
+                if (search)
+                {
+                    return;
+                }
+                DirectoryInfo fo = new DirectoryInfo(a);
+                graph.AddEdge(ro.Name, fo.Name);
+                DFS(a, target, graph, ref search);
             }
             string[] files;
             files = Directory.GetFiles(root);
             foreach (string file in files)
             {
                 FileInfo fi = new FileInfo(file);
-                graph.AddEdge(root, fi.Name);
+                graph.AddEdge(ro.Name, fi.Name);
+                if (fi.Name == target)
+                {
+                    search = true;
+                    return;
+                }
             }
         }
     }
