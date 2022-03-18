@@ -25,8 +25,10 @@ namespace Folder_crawling
             string target = Console.ReadLine();
             string ans = "";
             Boolean found = false;
-            DFS(args, target, graph, ref found, ref ans);
-            coloring(graph, args, ans);
+
+            BFS(args, target, graph, ref ans);
+            Coloring(graph, args, ans);
+
             viewer.Graph = graph;
             form.SuspendLayout();
             viewer.Dock = DockStyle.Fill;
@@ -46,15 +48,24 @@ namespace Folder_crawling
             while (dir.Count > 0)
             {
                 string cur = dir.Dequeue();
+                if (cur != root)
+                {
+                    Node now = g.FindNode(cur);
+                    foreach (Edge e in now.InEdges)
+                    {
+                        e.Attr.Color = Color.Red;
+                        now.Attr.FillColor = Color.Red;
+                        e.SourceNode.Attr.FillColor = Color.Red;
+                    }
+                }
                 DirectoryInfo ro = new DirectoryInfo(cur);
-                string[] sub;
+                string[] sub, files;
                 sub = Directory.GetDirectories(cur);
-                string[] files;
                 files = Directory.GetFiles(cur);
                 foreach (string file in files)
                 {
                     FileInfo fi = new FileInfo(file);
-                    changeLabel(g, cur, file);
+                    ChangeLabel(g, cur, file);
                     if (fi.Name == target)
                     {
                         ans = file;
@@ -89,7 +100,7 @@ namespace Folder_crawling
                 {
                     return;
                 }
-                changeLabel(graph, root, a);
+                ChangeLabel(graph, root, a);
                 DFS(a, target, graph, ref search, ref ans);
             }
             string[] files;
@@ -101,7 +112,7 @@ namespace Folder_crawling
                     return;
                 }
                 FileInfo fi = new FileInfo(file);
-                changeLabel(graph, root, file);
+                ChangeLabel(graph, root, file);
                 if (fi.Name == target)
                 {
                     ans = file;
@@ -110,7 +121,7 @@ namespace Folder_crawling
                 }
             }
         }
-        public static void changeLabel(Graph g, string src, string target)
+        public static void ChangeLabel(Graph g, string src, string target)
         {
             FileInfo _src = new FileInfo(src);
             FileInfo _target = new FileInfo(target);
@@ -120,7 +131,7 @@ namespace Folder_crawling
             g.FindNode(src).LabelText = _src.Name;
             g.FindNode(target).LabelText = _target.Name;
         }
-        public static void coloring(Graph g, string src, string ans)
+        public static void Coloring(Graph g, string src, string ans)
         {
             if (ans == "")
             {
