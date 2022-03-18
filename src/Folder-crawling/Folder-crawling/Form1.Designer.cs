@@ -69,6 +69,10 @@
             this.label2.Text = "Output";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -92,6 +96,7 @@
             this.listView1.Size = new System.Drawing.Size(490, 500);
             this.listView1.TabIndex = 3;
             this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // listView2
             // 
@@ -104,6 +109,7 @@
             this.listView2.Size = new System.Drawing.Size(971, 507);
             this.listView2.TabIndex = 4;
             this.listView2.UseCompatibleStateImageBehavior = false;
+            this.listView2.SelectedIndexChanged += new System.EventHandler(this.listView2_SelectedIndexChanged);
             // 
             // button1
             // 
@@ -250,7 +256,6 @@
             this.Cursor = System.Windows.Forms.Cursors.AppStarting;
             this.ForeColor = System.Drawing.SystemColors.Control;
             this.Name = "Form1";
-            this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Text = "Folder-Crawling";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);

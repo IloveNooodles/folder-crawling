@@ -24,11 +24,12 @@ namespace Folder_crawling
             //input
             string args = Console.ReadLine();
             string target = Console.ReadLine();
-            string ans = "";
+            List<string> ans = new List<string>();
             Boolean found = false;
+            Boolean allOccurence = false;
 
             //process
-            BFS(args, target, graph, ref ans);
+            DFS(args, target, graph,ref found, ans, allOccurence);
             //change color answer path
             Coloring(graph, args, ans);
 
@@ -41,7 +42,7 @@ namespace Folder_crawling
             form.ShowDialog();
         }
 
-        public static void BFS(string root,string target, Graph g, ref string ans)
+        public static void BFS(string root,string target, Graph g,List<string> ans, Boolean allOccurence)
         {
             Queue<string> dir = new Queue<string>(50);
             if (!Directory.Exists(root))
@@ -74,8 +75,11 @@ namespace Folder_crawling
                     ChangeLabel(g, cur, file);
                     if (fi.Name == target) // check if this is goal
                     {
-                        ans = file;
-                        return;
+                        ans.Add(file);
+                        if (!allOccurence)
+                        {
+                            return;
+                        }
                     }
                 }
                 //iterate all subdirectories in current Directory and process (addNode, addEdge)
@@ -89,14 +93,14 @@ namespace Folder_crawling
                 }
             }
         }
-        public static void DFS(string root, string target, Graph graph, ref Boolean search, ref string ans)
+        public static void DFS(string root, string target, Graph graph, ref Boolean search, List<string> ans, Boolean allOccurence)
         {
             if (!Directory.Exists(root))
             {
                 throw new ArgumentException();
             }
             //if already found, stop the dfs
-            if (search)
+            if (search && !allOccurence)
             {
                 return;
             }
@@ -104,18 +108,18 @@ namespace Folder_crawling
             sub = Directory.GetDirectories(root);
             foreach (string a in sub)
             {
-                if (search) //if goal found, stop the iterate
+                if (search && !allOccurence) //if goal found, stop the iterate
                 {
                     return;
                 }
                 ChangeLabel(graph, root, a); //addEdge, addNode, and change color node and edge
-                DFS(a, target, graph, ref search, ref ans); //recursive function for DFS algorithm
+                DFS(a, target, graph, ref search, ans, allOccurence); //recursive function for DFS algorithm
             }
             string[] files;
             files = Directory.GetFiles(root);
             foreach (string file in files) //iterate all file in the current directory
             {
-                if (search) //if goal found, stop the iterate
+                if (search && !allOccurence) //if goal found, stop the iterate
                 {
                     return;
                 }
@@ -123,9 +127,12 @@ namespace Folder_crawling
                 ChangeLabel(graph, root, file); //addEdge, addNode, and change color node and edge
                 if (fi.Name == target) //this is goal state
                 {
-                    ans = file;
-                    search = true;
-                    break;
+                    ans.Add(file);
+                    if (!allOccurence)
+                    {
+                        search = true;
+                        break;
+                    }
                 }
             }
         }
@@ -139,23 +146,27 @@ namespace Folder_crawling
             g.FindNode(src).LabelText = _src.Name;
             g.FindNode(target).LabelText = _target.Name;
         }
-        public static void Coloring(Graph g, string src, string ans) //procedure to change the color of path from source to answer
+        public static void Coloring(Graph g, string src, List<string> ans) //procedure to change the color of path from source to answer
         {
-            if (ans == "")
+            if (ans.Count == 0)
             {
                 return;
             }
             Node now;
-            while (src != ans)
+            foreach(string x in ans)
             {
-                now = g.FindNode(ans);
-                now.Attr.FillColor = Color.Green;
-                foreach (Edge e in now.InEdges)
+                string n = x;
+                while (src != n)
                 {
-                    e.Attr.Color = Color.Green;
-                    now = e.SourceNode;
+                    now = g.FindNode(n);
+                    now.Attr.FillColor = Color.Green;
+                    foreach (Edge e in now.InEdges)
+                    {
+                        e.Attr.Color = Color.Green;
+                        now = e.SourceNode;
+                    }
+                    n = now.Id;
                 }
-                ans = now.Id;
             }
             now = g.FindNode(src);
             now.Attr.FillColor = Color.Green;
