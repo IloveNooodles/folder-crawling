@@ -17,15 +17,20 @@ namespace Folder_crawling
         [STAThread]
         static void Main()
         {
-            //Form form = new Form();
-            //GViewer viewer = new GViewer();
+            Form form = new Form();
+            GViewer viewer = new GViewer();
             Graph graph = new Graph("graph");
             string args = Console.ReadLine();
             string target = Console.ReadLine();
-            DFS(args, graph);
-            Console.WriteLine("\n");
             BFS(args, target, graph);
             Console.ReadKey();
+            viewer.Graph = graph;
+            form.SuspendLayout();
+            viewer.Dock = DockStyle.Fill;
+            form.Controls.Add(viewer);
+            form.ResumeLayout();
+            form.ShowDialog();
+
         }
 
         public static void BFS(string root,string target, Graph g)
@@ -39,22 +44,24 @@ namespace Folder_crawling
             while (dir.Count > 0)
             {
                 string cur = dir.Dequeue();
+                DirectoryInfo ro = new DirectoryInfo(cur);
                 string[] sub;
                 sub = Directory.GetDirectories(cur);
                 string[] files;
                 files = Directory.GetFiles(cur);
                 foreach (string file in files)
                 {
-                    Console.WriteLine(file);
                     FileInfo fi = new FileInfo(file);
+                    g.AddEdge(ro.Name, fi.Name);
                     if (fi.Name == target)
                     {
-                        Console.WriteLine("File ditemukan");
                         return;
                     }
                 }
                 foreach (string a in sub)
                 {
+                    DirectoryInfo fo = new DirectoryInfo(a);
+                    g.AddEdge(ro.Name, fo.Name);
                     dir.Enqueue(a);
                 }
             }
@@ -69,13 +76,15 @@ namespace Folder_crawling
             sub = Directory.GetDirectories(root);
             foreach (string a in sub)
             {
+                graph.AddEdge(root, a);
                 DFS(a, graph);
             }
             string[] files;
             files = Directory.GetFiles(root);
             foreach (string file in files)
             {
-                Console.WriteLine(file);
+                FileInfo fi = new FileInfo(file);
+                graph.AddEdge(root, fi.Name);
             }
         }
     }
