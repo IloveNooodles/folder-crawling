@@ -21,14 +21,18 @@ namespace Folder_crawling
             GViewer viewer = new GViewer();
             Graph graph = new Graph("graph");
 
+            //input
             string args = Console.ReadLine();
             string target = Console.ReadLine();
             string ans = "";
             Boolean found = false;
 
+            //process
             BFS(args, target, graph, ref ans);
+            //change color answer path
             Coloring(graph, args, ans);
 
+            //visualization
             viewer.Graph = graph;
             form.SuspendLayout();
             viewer.Dock = DockStyle.Fill;
@@ -48,6 +52,7 @@ namespace Folder_crawling
             while (dir.Count > 0)
             {
                 string cur = dir.Dequeue();
+                //change color to red because visited
                 if (cur != root)
                 {
                     Node now = g.FindNode(cur);
@@ -62,23 +67,25 @@ namespace Folder_crawling
                 string[] sub, files;
                 sub = Directory.GetDirectories(cur);
                 files = Directory.GetFiles(cur);
+                //iterate all file in current Directory and process (addNode, addEdge, color the node and edge)
                 foreach (string file in files)
                 {
                     FileInfo fi = new FileInfo(file);
                     ChangeLabel(g, cur, file);
-                    if (fi.Name == target)
+                    if (fi.Name == target) // check if this is goal
                     {
                         ans = file;
                         return;
                     }
                 }
+                //iterate all subdirectories in current Directory and process (addNode, addEdge)
                 foreach (string a in sub)
                 {
                     DirectoryInfo fo = new DirectoryInfo(a);
                     g.AddEdge(cur, a);
                     g.FindNode(cur).LabelText = ro.Name;
                     g.FindNode(a).LabelText = fo.Name;
-                    dir.Enqueue(a);
+                    dir.Enqueue(a); //enqueue all subdirectory to queue dir (for process)
                 }
             }
         }
@@ -88,6 +95,7 @@ namespace Folder_crawling
             {
                 throw new ArgumentException();
             }
+            //if already found, stop the dfs
             if (search)
             {
                 return;
@@ -96,24 +104,24 @@ namespace Folder_crawling
             sub = Directory.GetDirectories(root);
             foreach (string a in sub)
             {
-                if (search)
+                if (search) //if goal found, stop the iterate
                 {
                     return;
                 }
-                ChangeLabel(graph, root, a);
-                DFS(a, target, graph, ref search, ref ans);
+                ChangeLabel(graph, root, a); //addEdge, addNode, and change color node and edge
+                DFS(a, target, graph, ref search, ref ans); //recursive function for DFS algorithm
             }
             string[] files;
             files = Directory.GetFiles(root);
-            foreach (string file in files)
+            foreach (string file in files) //iterate all file in the current directory
             {
-                if (search)
+                if (search) //if goal found, stop the iterate
                 {
                     return;
                 }
                 FileInfo fi = new FileInfo(file);
-                ChangeLabel(graph, root, file);
-                if (fi.Name == target)
+                ChangeLabel(graph, root, file); //addEdge, addNode, and change color node and edge
+                if (fi.Name == target) //this is goal state
                 {
                     ans = file;
                     search = true;
@@ -121,7 +129,7 @@ namespace Folder_crawling
                 }
             }
         }
-        public static void ChangeLabel(Graph g, string src, string target)
+        public static void ChangeLabel(Graph g, string src, string target) //procedure to process the graph
         {
             FileInfo _src = new FileInfo(src);
             FileInfo _target = new FileInfo(target);
@@ -131,7 +139,7 @@ namespace Folder_crawling
             g.FindNode(src).LabelText = _src.Name;
             g.FindNode(target).LabelText = _target.Name;
         }
-        public static void Coloring(Graph g, string src, string ans)
+        public static void Coloring(Graph g, string src, string ans) //procedure to change the color of path from source to answer
         {
             if (ans == "")
             {
