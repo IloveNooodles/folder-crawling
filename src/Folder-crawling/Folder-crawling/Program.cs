@@ -24,7 +24,7 @@ namespace Folder_crawling
             string args = Console.ReadLine();
             string target = Console.ReadLine();
             Boolean found = false;
-            DFS(args, target, graph, ref found);
+            BFS(args, target, graph);
             
             viewer.Graph = graph;
             form.SuspendLayout();
@@ -54,7 +54,9 @@ namespace Folder_crawling
                 foreach (string file in files)
                 {
                     FileInfo fi = new FileInfo(file);
-                    g.AddEdge(ro.Name, fi.Name);
+                    g.AddEdge(ro.Name, fi.Name).Attr.Color = Color.Red;
+                    g.FindNode(ro.Name).Attr.Color = Color.Red;
+                    g.FindNode(fi.Name).Attr.Color = Color.Red;
                     if (fi.Name == target)
                     {
                         return;
@@ -70,6 +72,7 @@ namespace Folder_crawling
         }
         public static void DFS(string root, string target, Graph graph, ref Boolean search)
         {
+            string ans = "";
             if (!Directory.Exists(root))
             {
                 throw new ArgumentException();
@@ -88,7 +91,9 @@ namespace Folder_crawling
                     return;
                 }
                 DirectoryInfo fo = new DirectoryInfo(a);
-                graph.AddEdge(ro.Name, fo.Name);
+                graph.AddEdge(ro.Name, fo.Name).Attr.Color = Color.Red;
+                graph.FindNode(fo.Name).Attr.Color = Color.Red;
+                graph.FindNode(ro.Name).Attr.Color = Color.Red;
                 DFS(a, target, graph, ref search);
             }
             string[] files;
@@ -96,11 +101,14 @@ namespace Folder_crawling
             foreach (string file in files)
             {
                 FileInfo fi = new FileInfo(file);
-                graph.AddEdge(ro.Name, fi.Name);
+                graph.AddEdge(ro.Name, fi.Name).Attr.Color = Color.Red;
+                graph.FindNode(ro.Name).Attr.Color = Color.Red;
+                graph.FindNode(fi.Name).Attr.Color = Color.Red;
                 if (fi.Name == target)
                 {
+                    ans = file;
                     search = true;
-                    return;
+                    break;
                 }
             }
         }
