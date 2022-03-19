@@ -55,10 +55,10 @@ namespace Folder_crawling
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.button2.BackColor = System.Drawing.Color.Violet;
-            this.button2.FlatStyle = FlatStyle.Flat;
-            this.button2.FlatAppearance.BorderColor = Color.Tomato; 
-            this.button2.FlatAppearance.BorderSize = 1;
+            this.SearchFile.BackColor = System.Drawing.Color.Violet;
+            this.SearchFile.FlatStyle = FlatStyle.Flat;
+            this.SearchFile.FlatAppearance.BorderColor = Color.Tomato; 
+            this.SearchFile.FlatAppearance.BorderSize = 1;
         }
 
         private void label4_Click(object sender, EventArgs e)

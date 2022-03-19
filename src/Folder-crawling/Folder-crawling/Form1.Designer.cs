@@ -35,15 +35,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.listView1 = new System.Windows.Forms.ListView();
             this.listView2 = new System.Windows.Forms.ListView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.StartingFolder = new System.Windows.Forms.Button();
+            this.FindAll = new System.Windows.Forms.CheckBox();
+            this.SearchFile = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.FileName = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.BFS = new System.Windows.Forms.RadioButton();
+            this.DFS = new System.Windows.Forms.RadioButton();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -108,49 +108,49 @@
             this.listView2.TabIndex = 4;
             this.listView2.UseCompatibleStateImageBehavior = false;
             // 
-            // button1
+            // StartingFolder
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.button1.Location = new System.Drawing.Point(35, 251);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(215, 48);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Choose Folder";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.StartingFolder.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.StartingFolder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.StartingFolder.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StartingFolder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.StartingFolder.Location = new System.Drawing.Point(35, 251);
+            this.StartingFolder.Name = "StartingFolder";
+            this.StartingFolder.Size = new System.Drawing.Size(215, 48);
+            this.StartingFolder.TabIndex = 5;
+            this.StartingFolder.Text = "Choose Folder";
+            this.StartingFolder.UseVisualStyleBackColor = false;
+            this.StartingFolder.Click += new System.EventHandler(this.button1_Click);
             // 
-            // checkBox1
+            // FindAll
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.checkBox1.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
-            this.checkBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox1.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.checkBox1.Location = new System.Drawing.Point(39, 319);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(157, 24);
-            this.checkBox1.TabIndex = 6;
-            this.checkBox1.Text = "Find All occurence";
-            this.checkBox1.UseVisualStyleBackColor = false;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.FindAll.AutoSize = true;
+            this.FindAll.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.FindAll.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
+            this.FindAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FindAll.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FindAll.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.FindAll.Location = new System.Drawing.Point(39, 319);
+            this.FindAll.Name = "FindAll";
+            this.FindAll.Size = new System.Drawing.Size(157, 24);
+            this.FindAll.TabIndex = 6;
+            this.FindAll.Text = "Find All occurence";
+            this.FindAll.UseVisualStyleBackColor = false;
+            this.FindAll.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
-            // button2
+            // SearchFile
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.button2.Location = new System.Drawing.Point(62, 433);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(221, 56);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Search";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.SearchFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.SearchFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SearchFile.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchFile.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.SearchFile.Location = new System.Drawing.Point(62, 433);
+            this.SearchFile.Name = "SearchFile";
+            this.SearchFile.Size = new System.Drawing.Size(221, 56);
+            this.SearchFile.TabIndex = 7;
+            this.SearchFile.Text = "Search";
+            this.SearchFile.UseVisualStyleBackColor = false;
+            this.SearchFile.Click += new System.EventHandler(this.button2_Click);
             // 
             // label4
             // 
@@ -164,18 +164,18 @@
             this.label4.Text = "Input File Name";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
-            // textBox1
+            // FileName
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.MenuText;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.SystemColors.Window;
-            this.textBox1.Location = new System.Drawing.Point(35, 182);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(149, 23);
-            this.textBox1.TabIndex = 9;
-            this.textBox1.Text = " Your File Here";
+            this.FileName.BackColor = System.Drawing.Color.DimGray;
+            this.FileName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.FileName.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FileName.ForeColor = System.Drawing.SystemColors.Window;
+            this.FileName.Location = new System.Drawing.Point(35, 182);
+            this.FileName.Margin = new System.Windows.Forms.Padding(0);
+            this.FileName.Name = "FileName";
+            this.FileName.Size = new System.Drawing.Size(149, 23);
+            this.FileName.TabIndex = 9;
+            this.FileName.Text = " Your File Here";
             // 
             // label5
             // 
@@ -201,35 +201,35 @@
             this.label6.Text = "Search Method";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
-            // radioButton1
+            // BFS
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.radioButton1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.radioButton1.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.radioButton1.Location = new System.Drawing.Point(39, 381);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(50, 24);
-            this.radioButton1.TabIndex = 12;
-            this.radioButton1.Text = "BFS";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.BFS.AutoSize = true;
+            this.BFS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.BFS.Cursor = System.Windows.Forms.Cursors.Default;
+            this.BFS.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BFS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.BFS.Location = new System.Drawing.Point(39, 381);
+            this.BFS.Name = "BFS";
+            this.BFS.Size = new System.Drawing.Size(50, 24);
+            this.BFS.TabIndex = 12;
+            this.BFS.Text = "BFS";
+            this.BFS.UseVisualStyleBackColor = true;
+            this.BFS.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
-            // radioButton2
+            // DFS
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Checked = true;
-            this.radioButton2.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.radioButton2.Location = new System.Drawing.Point(111, 381);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(51, 24);
-            this.radioButton2.TabIndex = 13;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "DFS";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            this.DFS.AutoSize = true;
+            this.DFS.Checked = true;
+            this.DFS.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DFS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.DFS.Location = new System.Drawing.Point(111, 381);
+            this.DFS.Name = "DFS";
+            this.DFS.Size = new System.Drawing.Size(51, 24);
+            this.DFS.TabIndex = 13;
+            this.DFS.TabStop = true;
+            this.DFS.Text = "DFS";
+            this.DFS.UseVisualStyleBackColor = true;
+            this.DFS.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
             // contextMenuStrip1
             // 
@@ -244,9 +244,9 @@
             this.label7.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.label7.Location = new System.Drawing.Point(487, 55);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(212, 18);
+            this.label7.Size = new System.Drawing.Size(210, 18);
             this.label7.TabIndex = 15;
-            this.label7.Text = "The Fastest file finder in the world";
+            this.label7.Text = "The fastest file finder in the world";
             this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // Form1
@@ -256,15 +256,15 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(1184, 568);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.DFS);
+            this.Controls.Add(this.BFS);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.FileName);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.SearchFile);
+            this.Controls.Add(this.FindAll);
+            this.Controls.Add(this.StartingFolder);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -288,15 +288,15 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ListView listView2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button StartingFolder;
+        private System.Windows.Forms.CheckBox FindAll;
+        private System.Windows.Forms.Button SearchFile;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        public System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.RadioButton BFS;
+        private System.Windows.Forms.RadioButton DFS;
+        public System.Windows.Forms.TextBox FileName;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.Label label7;
     }
