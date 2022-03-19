@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Windows.Forms;
 using Microsoft.Msagl.Drawing;
 using Microsoft.Msagl.GraphViewerGdi;
@@ -61,6 +62,8 @@ namespace Folder_crawling
 
         private void button2_Click(object sender, EventArgs e)
         {
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
             this.filePath.Text = "";
             this.pathFile = new List<string>();
             Form form = new Form();
@@ -83,6 +86,12 @@ namespace Folder_crawling
             {
                 this.filePath.Text += text + "\n";
             }
+
+            //stopwatch stop
+            stopwatch.Stop();
+            TimeSpan ts = stopwatch.Elapsed;
+            string elapsedTime = String.Format("{0:00}.{1:00} ms", ts.Seconds, ts.Milliseconds / 10);
+            this.elapsedTime.Text = elapsedTime;
 
             viewer.Graph = graph;
             form.SuspendLayout();

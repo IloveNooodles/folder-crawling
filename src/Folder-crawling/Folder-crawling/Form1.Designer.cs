@@ -50,6 +50,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.filePath = new System.Windows.Forms.Label();
+            this.time = new System.Windows.Forms.Label();
+            this.elapsedTime = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -288,17 +290,40 @@
             this.filePath.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.filePath.Location = new System.Drawing.Point(485, 155);
             this.filePath.Name = "filePath";
-            this.filePath.Size = new System.Drawing.Size(70, 22);
+            this.filePath.Size = new System.Drawing.Size(0, 22);
             this.filePath.TabIndex = 18;
-            this.filePath.Text = "pathFile";
             this.filePath.Click += new System.EventHandler(this.label10_Click);
+            // 
+            // time
+            // 
+            this.time.AutoSize = true;
+            this.time.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.time.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.time.Location = new System.Drawing.Point(401, 520);
+            this.time.Name = "time";
+            this.time.Size = new System.Drawing.Size(114, 22);
+            this.time.TabIndex = 19;
+            this.time.Text = "Elapsed Time:";
+            // 
+            // elapsedTime
+            // 
+            this.elapsedTime.AutoSize = true;
+            this.elapsedTime.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.elapsedTime.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.elapsedTime.Location = new System.Drawing.Point(521, 520);
+            this.elapsedTime.Name = "elapsedTime";
+            this.elapsedTime.Size = new System.Drawing.Size(0, 22);
+            this.elapsedTime.TabIndex = 20;
+            // 
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(1235, 551);
+            this.ClientSize = new System.Drawing.Size(1235, 551);;
+            this.Controls.Add(this.elapsedTime);
+            this.Controls.Add(this.time);
             this.Controls.Add(this.filePath);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -350,6 +375,8 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label filePath;
+        private System.Windows.Forms.Label time;
+        private System.Windows.Forms.Label elapsedTime;
     }
 }
 
