@@ -95,5 +95,15 @@ namespace Folder_crawling
         {
 
         }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
