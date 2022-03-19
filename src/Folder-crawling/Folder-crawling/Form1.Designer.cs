@@ -48,6 +48,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.filePath = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -267,12 +269,38 @@
             this.label8.Text = "No File Chosen";
             this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label9.Location = new System.Drawing.Point(401, 155);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(78, 22);
+            this.label9.TabIndex = 17;
+            this.label9.Text = "Full Path:";
+            // 
+            // filePath
+            // 
+            this.filePath.AutoSize = true;
+            this.filePath.Cursor = System.Windows.Forms.Cursors.Default;
+            this.filePath.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.filePath.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.filePath.Location = new System.Drawing.Point(485, 155);
+            this.filePath.Name = "filePath";
+            this.filePath.Size = new System.Drawing.Size(70, 22);
+            this.filePath.TabIndex = 18;
+            this.filePath.Text = "pathFile";
+            this.filePath.Click += new System.EventHandler(this.label10_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(1235, 551);
+            this.Controls.Add(this.filePath);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.DFS);
@@ -320,6 +348,8 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label filePath;
     }
 }
 
