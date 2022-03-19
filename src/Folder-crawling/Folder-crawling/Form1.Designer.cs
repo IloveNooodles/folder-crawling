@@ -222,7 +222,6 @@
             // DFS
             // 
             this.DFS.AutoSize = true;
-            this.DFS.Checked = true;
             this.DFS.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DFS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.DFS.Location = new System.Drawing.Point(105, 401);
