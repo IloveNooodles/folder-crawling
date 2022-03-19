@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Windows.Forms;
 using Microsoft.Msagl.Drawing;
 using Microsoft.Msagl.GraphViewerGdi;
@@ -14,6 +15,7 @@ namespace Folder_crawling
         string target;
         string choose;
         bool allOccurence;
+        List<string> pathFile;
 
         public Form1()
         {
@@ -60,6 +62,10 @@ namespace Folder_crawling
 
         private void button2_Click(object sender, EventArgs e)
         {
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+            this.filePath.Text = "";
+            this.pathFile = new List<string>();
             Form form = new Form();
             GViewer viewer = new GViewer();
             Graph graph = new Graph("graph");
@@ -67,13 +73,26 @@ namespace Folder_crawling
             if (choose == "DFS")
             {
                 bool found = false;
-                DFS(src, target, graph, ref found, ans, allOccurence);
+                DFS(src, target, graph, ref found, ans, allOccurence, ref pathFile);
             }
             else if (choose == "BFS")
             {
-                BFS(src, target, graph, ans, allOccurence);
+                BFS(src, target, graph, ans, allOccurence, ref pathFile);
             }
             graphColoring(graph, src, ans);
+
+
+            foreach (string text in pathFile)
+            {
+                this.filePath.Text += text + "\n";
+            }
+
+            //stopwatch stop
+            stopwatch.Stop();
+            TimeSpan ts = stopwatch.Elapsed;
+            string elapsedTime = String.Format("{0:00}.{1:00} ms", ts.Seconds, ts.Milliseconds / 10);
+            this.elapsedTime.Text = elapsedTime;
+
             viewer.Graph = graph;
             form.SuspendLayout();
             viewer.Dock = DockStyle.Fill;
@@ -146,6 +165,11 @@ namespace Folder_crawling
         private void label8_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

@@ -10,7 +10,7 @@ namespace Folder_crawling
 {
     internal class Algorithm
     {
-        public static void DFS(string root, string target, Graph listDirectory, ref bool search, List<string> listAns, bool allOcurence)
+        public static void DFS(string root, string target, Graph listDirectory, ref bool search, List<string> listAns, bool allOcurence, ref List<string> fullPath)
         {
             //if not found throw exc
             if (!Directory.Exists(root))
@@ -35,7 +35,7 @@ namespace Folder_crawling
                     return;
                 }
                 ChangeLabel(listDirectory, root, dir);
-                DFS(dir, target, listDirectory, ref search, listAns, allOcurence);
+                DFS(dir, target, listDirectory, ref search, listAns, allOcurence, ref fullPath);
             }
 
             string[] files;
@@ -51,6 +51,8 @@ namespace Folder_crawling
                 ChangeLabel(listDirectory, root, file);
                 if (fileInfo.Exists && fileInfo.Name == target)
                 {
+                    string s = fileInfo.FullName;
+                    fullPath.Add(s);
                     listAns.Add(file);
                     if (!allOcurence)
                     {
@@ -62,7 +64,7 @@ namespace Folder_crawling
         }
 
         //get file in each dir 
-        public static void BFS(string root, string target, Graph listDirectory, List<string> listAns, bool allOcurence)
+        public static void BFS(string root, string target, Graph listDirectory, List<string> listAns, bool allOcurence, ref List<string> fullPath)
         {
             //if not found throw exc
             if (!Directory.Exists(root))
@@ -98,6 +100,8 @@ namespace Folder_crawling
                     ChangeLabel(listDirectory, dir, file);
                     if (fileInfo.Exists && fileInfo.Name == target)
                     {
+                        string s = fileInfo.FullName;
+                        fullPath.Add(s);
                         listAns.Add(file);
                         if(!allOcurence)  
                         {
