@@ -210,15 +210,30 @@ namespace Folder_crawling
             panel1.ResumeLayout();
         }
 
-        public void openFolder(string folderPath)
+        public void createLinkLabel(int x, int y, int i, string filePath)
         {
-            ProcessStartInfo psi = new ProcessStartInfo(folderPath)
-            {
-                Arguments = folderPath,
-                FileName = "explorer.exe"
-            };
-            Process.Start(psi);
+            LinkLabel label = new LinkLabel();
+            label.Name = "link" + i;
+            label.Location = new System.Drawing.Point(x, y);
+            label.Width = 350;
+            label.Height = 40;
+            label.BackColor = System.Drawing.Color.Black;
+            label.ForeColor = System.Drawing.Color.White;
+            label.Font = new System.Drawing.Font("Trebuchet MS", 8);
+            label.Text = filePath;
+            label.LinkClicked += new LinkLabelLinkClickedEventHandler(hyperLink);
+            label.BringToFront();
+            Controls.Add(label);
+            Controls.SetChildIndex(label, 10);
         }
+
+        public void hyperLink(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            LinkLabel linkLabel = (LinkLabel)sender;
+            string folderPath = linkLabel.Text.Replace(this.target, "");
+            System.Diagnostics.Process.Start(folderPath);
+        }
+
         public Form1()
         {
             InitializeComponent();
@@ -264,9 +279,9 @@ namespace Folder_crawling
 
         private void button2_Click(object sender, EventArgs e)
         {
+            this.placeholder.Text = "";
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
-            this.resFilePath.Text = "";
             pathFile = new List<string>();
             Graph graph = new Graph("graph");
             List<string> ans = new List<string>();
@@ -283,10 +298,20 @@ namespace Folder_crawling
             graphColoring(graph, src, ans);
 
 
+            int x = 1081; int y = 177; int i = 1;
+            int increment;
+            if (DFS.Checked)
+            {
+                increment = 40;
+            } else
+            {
+                increment = 25;
+            }
             foreach (string text in pathFile)
             {
-                this.resFilePath.Text += text + "\n";
-                openFolder(text);
+                createLinkLabel(x, y, i, text);
+                y += increment;
+                i++;
             }
 
             //stopwatch stop
@@ -382,6 +407,11 @@ namespace Folder_crawling
         }
 
         private void listLink_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void listView2_SelectedIndexChanged_1(object sender, EventArgs e)
         {
 
         }

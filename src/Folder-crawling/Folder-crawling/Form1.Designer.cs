@@ -53,8 +53,11 @@
             this.elapsedTime = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.listView2 = new System.Windows.Forms.ListView();
-            this.resFilePath = new System.Windows.Forms.Label();
             this.curTime = new System.Windows.Forms.Label();
+            this.listView3 = new System.Windows.Forms.ListView();
+            this.label10 = new System.Windows.Forms.Label();
+            this.placeholder = new System.Windows.Forms.Label();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -74,7 +77,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Trebuchet MS", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(859, 106);
+            this.label2.Location = new System.Drawing.Point(841, 106);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(123, 40);
             this.label2.TabIndex = 1;
@@ -99,7 +102,7 @@
             this.listView1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listView1.Cursor = System.Windows.Forms.Cursors.Default;
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(12, 88);
+            this.listView1.Location = new System.Drawing.Point(-2, 88);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(400, 564);
             this.listView1.TabIndex = 3;
@@ -267,7 +270,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label9.Location = new System.Drawing.Point(1093, 155);
+            this.label9.Location = new System.Drawing.Point(1081, 155);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(78, 22);
             this.label9.TabIndex = 17;
@@ -291,7 +294,7 @@
             this.time.AutoSize = true;
             this.time.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.time.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.time.Location = new System.Drawing.Point(1093, 611);
+            this.time.Location = new System.Drawing.Point(1081, 611);
             this.time.Name = "time";
             this.time.Size = new System.Drawing.Size(114, 22);
             this.time.TabIndex = 19;
@@ -310,6 +313,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.placeholder);
             this.panel1.Location = new System.Drawing.Point(430, 155);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(645, 478);
@@ -321,43 +325,66 @@
             this.listView2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listView2.Cursor = System.Windows.Forms.Cursors.Default;
             this.listView2.HideSelection = false;
-            this.listView2.Location = new System.Drawing.Point(407, 88);
+            this.listView2.Location = new System.Drawing.Point(393, 88);
             this.listView2.Name = "listView2";
             this.listView2.Size = new System.Drawing.Size(1016, 564);
             this.listView2.TabIndex = 22;
             this.listView2.UseCompatibleStateImageBehavior = false;
-            // 
-            // resFilePath
-            // 
-            this.resFilePath.AutoSize = true;
-            this.resFilePath.Font = new System.Drawing.Font("Trebuchet MS", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resFilePath.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.resFilePath.Location = new System.Drawing.Point(1093, 177);
-            this.resFilePath.Name = "resFilePath";
-            this.resFilePath.Size = new System.Drawing.Size(11, 16);
-            this.resFilePath.TabIndex = 23;
-            this.resFilePath.Text = "-";
-            this.resFilePath.Click += new System.EventHandler(this.label10_Click_1);
+            this.listView2.SelectedIndexChanged += new System.EventHandler(this.listView2_SelectedIndexChanged_1);
             // 
             // curTime
             // 
             this.curTime.AutoSize = true;
             this.curTime.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.curTime.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.curTime.Location = new System.Drawing.Point(1213, 611);
+            this.curTime.Location = new System.Drawing.Point(1191, 611);
             this.curTime.Name = "curTime";
             this.curTime.Size = new System.Drawing.Size(16, 22);
             this.curTime.TabIndex = 24;
             this.curTime.Text = "-";
+            // 
+            // listView3
+            // 
+            this.listView3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.listView3.HideSelection = false;
+            this.listView3.Location = new System.Drawing.Point(-2, 649);
+            this.listView3.Name = "listView3";
+            this.listView3.Size = new System.Drawing.Size(1425, 103);
+            this.listView3.TabIndex = 25;
+            this.listView3.UseCompatibleStateImageBehavior = false;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label10.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label10.Location = new System.Drawing.Point(989, 664);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(348, 22);
+            this.label10.TabIndex = 26;
+            this.label10.Text = "2022 © C# C# di dinding. All Rights Reserved.";
+            // 
+            // placeholder
+            // 
+            this.placeholder.AutoSize = true;
+            this.placeholder.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.placeholder.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.placeholder.Location = new System.Drawing.Point(216, 223);
+            this.placeholder.Name = "placeholder";
+            this.placeholder.Size = new System.Drawing.Size(203, 22);
+            this.placeholder.TabIndex = 27;
+            this.placeholder.Text = "Graph will be shown here";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(1435, 847);
+            this.ClientSize = new System.Drawing.Size(1407, 704);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.listView3);
             this.Controls.Add(this.curTime);
-            this.Controls.Add(this.resFilePath);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.elapsedTime);
             this.Controls.Add(this.time);
@@ -384,6 +411,8 @@
             this.Name = "Form1";
             this.Text = "Folder-Crawling";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -415,8 +444,10 @@
         private System.Windows.Forms.Label elapsedTime;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ListView listView2;
-        private System.Windows.Forms.Label resFilePath;
         private System.Windows.Forms.Label curTime;
+        private System.Windows.Forms.ListView listView3;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label placeholder;
     }
 }
 
