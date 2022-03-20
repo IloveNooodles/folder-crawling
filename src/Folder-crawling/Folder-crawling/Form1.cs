@@ -209,6 +209,16 @@ namespace Folder_crawling
             panel1.Controls.Add(viewer);
             panel1.ResumeLayout();
         }
+
+        public void openFolder(string folderPath)
+        {
+            ProcessStartInfo psi = new ProcessStartInfo(folderPath)
+            {
+                Arguments = folderPath,
+                FileName = "explorer.exe"
+            };
+            Process.Start(psi);
+        }
         public Form1()
         {
             InitializeComponent();
@@ -256,7 +266,7 @@ namespace Folder_crawling
         {
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
-            filePath.Text = "";
+            this.resFilePath.Text = "";
             pathFile = new List<string>();
             Graph graph = new Graph("graph");
             List<string> ans = new List<string>();
@@ -275,14 +285,15 @@ namespace Folder_crawling
 
             foreach (string text in pathFile)
             {
-                this.filePath.Text += text + "\n";
+                this.resFilePath.Text += text + "\n";
+                openFolder(text);
             }
 
             //stopwatch stop
             stopwatch.Stop();
             TimeSpan ts = stopwatch.Elapsed;
             string elapsedTime = String.Format("{0:00}.{1:00} ms", ts.Seconds, ts.Milliseconds / 10);
-            this.elapsedTime.Text += elapsedTime;
+            this.curTime.Text = elapsedTime;
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -356,6 +367,21 @@ namespace Folder_crawling
         }
 
         private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listView2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listLink_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
