@@ -52,11 +52,12 @@
             this.time = new System.Windows.Forms.Label();
             this.elapsedTime = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.placeholder = new System.Windows.Forms.Label();
             this.listView2 = new System.Windows.Forms.ListView();
             this.curTime = new System.Windows.Forms.Label();
             this.listView3 = new System.Windows.Forms.ListView();
             this.label10 = new System.Windows.Forms.Label();
-            this.placeholder = new System.Windows.Forms.Label();
+            this.listView4 = new System.Windows.Forms.ListView();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -102,19 +103,20 @@
             this.listView1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listView1.Cursor = System.Windows.Forms.Cursors.Default;
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(-2, 88);
+            this.listView1.Location = new System.Drawing.Point(-20, 88);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(400, 564);
+            this.listView1.Size = new System.Drawing.Size(432, 564);
             this.listView1.TabIndex = 3;
             this.listView1.UseCompatibleStateImageBehavior = false;
             // 
             // StartingFolder
             // 
             this.StartingFolder.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.StartingFolder.FlatAppearance.BorderSize = 3;
             this.StartingFolder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.StartingFolder.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StartingFolder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.StartingFolder.Location = new System.Drawing.Point(57, 288);
+            this.StartingFolder.Location = new System.Drawing.Point(57, 285);
             this.StartingFolder.Name = "StartingFolder";
             this.StartingFolder.Size = new System.Drawing.Size(215, 48);
             this.StartingFolder.TabIndex = 5;
@@ -126,13 +128,13 @@
             // 
             this.FindAll.AutoSize = true;
             this.FindAll.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.FindAll.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
+            this.FindAll.FlatAppearance.CheckedBackColor = System.Drawing.Color.IndianRed;
             this.FindAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FindAll.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FindAll.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FindAll.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.FindAll.Location = new System.Drawing.Point(57, 405);
+            this.FindAll.Location = new System.Drawing.Point(57, 388);
             this.FindAll.Name = "FindAll";
-            this.FindAll.Size = new System.Drawing.Size(157, 24);
+            this.FindAll.Size = new System.Drawing.Size(166, 26);
             this.FindAll.TabIndex = 6;
             this.FindAll.Text = "Find All occurence";
             this.FindAll.UseVisualStyleBackColor = false;
@@ -141,10 +143,12 @@
             // SearchFile
             // 
             this.SearchFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.SearchFile.FlatAppearance.BorderSize = 0;
+            this.SearchFile.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.SearchFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SearchFile.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SearchFile.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.SearchFile.Location = new System.Drawing.Point(78, 546);
+            this.SearchFile.Location = new System.Drawing.Point(88, 520);
             this.SearchFile.Name = "SearchFile";
             this.SearchFile.Size = new System.Drawing.Size(221, 56);
             this.SearchFile.TabIndex = 7;
@@ -157,7 +161,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label4.Location = new System.Drawing.Point(57, 155);
+            this.label4.Location = new System.Drawing.Point(54, 170);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(127, 22);
             this.label4.TabIndex = 8;
@@ -166,14 +170,15 @@
             // 
             // FileName
             // 
-            this.FileName.BackColor = System.Drawing.Color.DimGray;
+            this.FileName.BackColor = System.Drawing.Color.Black;
             this.FileName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.FileName.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FileName.ForeColor = System.Drawing.SystemColors.Window;
-            this.FileName.Location = new System.Drawing.Point(57, 195);
+            this.FileName.Font = new System.Drawing.Font("Trebuchet MS", 11F);
+            this.FileName.ForeColor = System.Drawing.Color.LightGray;
+            this.FileName.Location = new System.Drawing.Point(57, 202);
             this.FileName.Margin = new System.Windows.Forms.Padding(0);
+            this.FileName.Multiline = true;
             this.FileName.Name = "FileName";
-            this.FileName.Size = new System.Drawing.Size(149, 23);
+            this.FileName.Size = new System.Drawing.Size(195, 28);
             this.FileName.TabIndex = 9;
             this.FileName.Text = " Your File Here";
             this.FileName.TextChanged += new System.EventHandler(this.FileName_TextChanged);
@@ -183,7 +188,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label5.Location = new System.Drawing.Point(53, 241);
+            this.label5.Location = new System.Drawing.Point(54, 256);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(198, 22);
             this.label5.TabIndex = 10;
@@ -195,7 +200,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label6.Location = new System.Drawing.Point(53, 457);
+            this.label6.Location = new System.Drawing.Point(53, 429);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(121, 22);
             this.label6.TabIndex = 11;
@@ -209,7 +214,7 @@
             this.BFS.Cursor = System.Windows.Forms.Cursors.Default;
             this.BFS.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BFS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.BFS.Location = new System.Drawing.Point(57, 494);
+            this.BFS.Location = new System.Drawing.Point(57, 454);
             this.BFS.Name = "BFS";
             this.BFS.Size = new System.Drawing.Size(50, 24);
             this.BFS.TabIndex = 12;
@@ -222,7 +227,7 @@
             this.DFS.AutoSize = true;
             this.DFS.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DFS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.DFS.Location = new System.Drawing.Point(123, 494);
+            this.DFS.Location = new System.Drawing.Point(141, 454);
             this.DFS.Name = "DFS";
             this.DFS.Size = new System.Drawing.Size(51, 24);
             this.DFS.TabIndex = 13;
@@ -256,11 +261,11 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Trebuchet MS", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.label8.Location = new System.Drawing.Point(54, 362);
+            this.label8.Location = new System.Drawing.Point(54, 353);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(94, 18);
+            this.label8.Size = new System.Drawing.Size(107, 20);
             this.label8.TabIndex = 16;
             this.label8.Text = "No File Chosen";
             this.label8.Click += new System.EventHandler(this.label8_Click);
@@ -318,6 +323,19 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(645, 478);
             this.panel1.TabIndex = 21;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // placeholder
+            // 
+            this.placeholder.AutoSize = true;
+            this.placeholder.Font = new System.Drawing.Font("Trebuchet MS", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.placeholder.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.placeholder.Location = new System.Drawing.Point(118, 198);
+            this.placeholder.Name = "placeholder";
+            this.placeholder.Size = new System.Drawing.Size(400, 40);
+            this.placeholder.TabIndex = 27;
+            this.placeholder.Text = "Graph will be shown here";
+            this.placeholder.Click += new System.EventHandler(this.placeholder_Click);
             // 
             // listView2
             // 
@@ -349,7 +367,7 @@
             this.listView3.HideSelection = false;
             this.listView3.Location = new System.Drawing.Point(-2, 649);
             this.listView3.Name = "listView3";
-            this.listView3.Size = new System.Drawing.Size(1425, 103);
+            this.listView3.Size = new System.Drawing.Size(1411, 60);
             this.listView3.TabIndex = 25;
             this.listView3.UseCompatibleStateImageBehavior = false;
             // 
@@ -365,16 +383,15 @@
             this.label10.TabIndex = 26;
             this.label10.Text = "2022 © C# C# di dinding. All Rights Reserved.";
             // 
-            // placeholder
+            // listView4
             // 
-            this.placeholder.AutoSize = true;
-            this.placeholder.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.placeholder.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.placeholder.Location = new System.Drawing.Point(216, 223);
-            this.placeholder.Name = "placeholder";
-            this.placeholder.Size = new System.Drawing.Size(203, 22);
-            this.placeholder.TabIndex = 27;
-            this.placeholder.Text = "Graph will be shown here";
+            this.listView4.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.listView4.HideSelection = false;
+            this.listView4.Location = new System.Drawing.Point(-20, -33);
+            this.listView4.Name = "listView4";
+            this.listView4.Size = new System.Drawing.Size(1429, 126);
+            this.listView4.TabIndex = 27;
+            this.listView4.UseCompatibleStateImageBehavior = false;
             // 
             // Form1
             // 
@@ -406,10 +423,15 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.listView2);
+            this.Controls.Add(this.listView4);
             this.Cursor = System.Windows.Forms.Cursors.AppStarting;
             this.ForeColor = System.Drawing.SystemColors.Control;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form1";
-            this.Text = "Folder-Crawling";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Folder Crawling";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -448,6 +470,7 @@
         private System.Windows.Forms.ListView listView3;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label placeholder;
+        private System.Windows.Forms.ListView listView4;
     }
 }
 
