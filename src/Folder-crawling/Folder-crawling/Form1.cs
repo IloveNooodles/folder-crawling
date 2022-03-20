@@ -218,9 +218,9 @@ namespace Folder_crawling
             label.Location = new System.Drawing.Point(x, y);
             label.Width = 350;
             label.Height = 40;
-            label.BackColor = System.Drawing.Color.Black;
+            label.BackColor = System.Drawing.ColorTranslator.FromHtml("#242629");
             label.ForeColor = System.Drawing.Color.White;
-            label.Font = new System.Drawing.Font("Trebuchet MS", 8);
+            label.Font = new System.Drawing.Font("Trebuchet MS", 11);
             label.Text = filePath;
             label.LinkClicked += new LinkLabelLinkClickedEventHandler(hyperLink);
             label.BringToFront();
@@ -238,6 +238,7 @@ namespace Folder_crawling
         public Form1()
         {
             InitializeComponent();
+
         }
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -267,12 +268,7 @@ namespace Folder_crawling
             listView2.ForeColor = System.Drawing.ColorTranslator.FromHtml("#010101");
 
             panel1.BackColor = System.Drawing.ColorTranslator.FromHtml("#16161A");
-
-
-
-
-
-
+            panel2.BackColor = System.Drawing.ColorTranslator.FromHtml("#7F5AF0");
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -326,7 +322,7 @@ namespace Folder_crawling
             graphColoring(graph, src, ans);
 
 
-            int x = 1081; int y = 177; int i = 1;
+            int x = 1046; int y = 185; int i = 1;
             int increment;
             if (DFS.Checked)
             {
@@ -345,7 +341,7 @@ namespace Folder_crawling
             //stopwatch stop
             stopwatch.Stop();
             TimeSpan ts = stopwatch.Elapsed;
-            string elapsedTime = String.Format("{0:00}.{1:00} ms", ts.Seconds, ts.Milliseconds / 10);
+            string elapsedTime = String.Format("{0:00}.{1:00} s", ts.Seconds, ts.Milliseconds / 100);
             this.curTime.Text = elapsedTime;
         }
 

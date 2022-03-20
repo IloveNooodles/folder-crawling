@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
@@ -58,6 +59,7 @@
             this.listView3 = new System.Windows.Forms.ListView();
             this.label10 = new System.Windows.Forms.Label();
             this.listView4 = new System.Windows.Forms.ListView();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -90,7 +92,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Trebuchet MS", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(165, 106);
+            this.label3.Location = new System.Drawing.Point(127, 106);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(96, 40);
             this.label3.TabIndex = 2;
@@ -105,7 +107,7 @@
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(-20, 88);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(432, 564);
+            this.listView1.Size = new System.Drawing.Size(361, 564);
             this.listView1.TabIndex = 3;
             this.listView1.UseCompatibleStateImageBehavior = false;
             // 
@@ -148,7 +150,7 @@
             this.SearchFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SearchFile.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SearchFile.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.SearchFile.Location = new System.Drawing.Point(88, 520);
+            this.SearchFile.Location = new System.Drawing.Point(58, 520);
             this.SearchFile.Name = "SearchFile";
             this.SearchFile.Size = new System.Drawing.Size(221, 56);
             this.SearchFile.TabIndex = 7;
@@ -275,7 +277,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label9.Location = new System.Drawing.Point(1081, 155);
+            this.label9.Location = new System.Drawing.Point(1046, 165);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(78, 22);
             this.label9.TabIndex = 17;
@@ -299,7 +301,7 @@
             this.time.AutoSize = true;
             this.time.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.time.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.time.Location = new System.Drawing.Point(1081, 611);
+            this.time.Location = new System.Drawing.Point(1046, 613);
             this.time.Name = "time";
             this.time.Size = new System.Drawing.Size(114, 22);
             this.time.TabIndex = 19;
@@ -319,9 +321,9 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.placeholder);
-            this.panel1.Location = new System.Drawing.Point(430, 155);
+            this.panel1.Location = new System.Drawing.Point(375, 170);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(645, 478);
+            this.panel1.Size = new System.Drawing.Size(660, 460);
             this.panel1.TabIndex = 21;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -343,9 +345,9 @@
             this.listView2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listView2.Cursor = System.Windows.Forms.Cursors.Default;
             this.listView2.HideSelection = false;
-            this.listView2.Location = new System.Drawing.Point(393, 88);
+            this.listView2.Location = new System.Drawing.Point(338, 88);
             this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(1016, 564);
+            this.listView2.Size = new System.Drawing.Size(1071, 564);
             this.listView2.TabIndex = 22;
             this.listView2.UseCompatibleStateImageBehavior = false;
             this.listView2.SelectedIndexChanged += new System.EventHandler(this.listView2_SelectedIndexChanged_1);
@@ -355,7 +357,7 @@
             this.curTime.AutoSize = true;
             this.curTime.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.curTime.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.curTime.Location = new System.Drawing.Point(1191, 611);
+            this.curTime.Location = new System.Drawing.Point(1166, 613);
             this.curTime.Name = "curTime";
             this.curTime.Size = new System.Drawing.Size(16, 22);
             this.curTime.TabIndex = 24;
@@ -393,16 +395,25 @@
             this.listView4.TabIndex = 27;
             this.listView4.UseCompatibleStateImageBehavior = false;
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel2.Location = new System.Drawing.Point(370, 165);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(670, 470);
+            this.panel2.TabIndex = 28;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(1407, 704);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.listView3);
             this.Controls.Add(this.curTime);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.elapsedTime);
             this.Controls.Add(this.time);
             this.Controls.Add(this.filePath);
@@ -427,8 +438,8 @@
             this.Cursor = System.Windows.Forms.Cursors.AppStarting;
             this.ForeColor = System.Drawing.SystemColors.Control;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Folder Crawling";
@@ -471,6 +482,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label placeholder;
         private System.Windows.Forms.ListView listView4;
+        private System.Windows.Forms.Panel panel2;
     }
 }
 
