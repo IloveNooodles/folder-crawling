@@ -252,10 +252,10 @@ namespace Folder_crawling
           
             listView1.BackColor = System.Drawing.ColorTranslator.FromHtml("#242629");
             listView2.BackColor = System.Drawing.ColorTranslator.FromHtml("#242629");
-            listView3.BackColor = System.Drawing.ColorTranslator.FromHtml("#16161A");
             listView4.BackColor = System.Drawing.ColorTranslator.FromHtml("#242629");
 
             FileName.BackColor = System.Drawing.ColorTranslator.FromHtml("#16161A");
+            FileName.ForeColor = System.Drawing.ColorTranslator.FromHtml("#94A1B2");
 
             StartingFolder.BackColor = System.Drawing.ColorTranslator.FromHtml("#242629");
             StartingFolder.ForeColor = System.Drawing.ColorTranslator.FromHtml("#7F5AF0");
@@ -269,6 +269,13 @@ namespace Folder_crawling
 
             panel1.BackColor = System.Drawing.ColorTranslator.FromHtml("#16161A");
             panel2.BackColor = System.Drawing.ColorTranslator.FromHtml("#7F5AF0");
+
+            panel3.BackColor = System.Drawing.ColorTranslator.FromHtml("#16161A");
+            panel4.BackColor = System.Drawing.ColorTranslator.FromHtml("#16161A");
+            panel5.BackColor = System.Drawing.ColorTranslator.FromHtml("#16161A");
+            placeholder.ForeColor = System.Drawing.ColorTranslator.FromHtml("#94A1B2");
+
+            label7.ForeColor = System.Drawing.ColorTranslator.FromHtml("#94A1B2");
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -446,6 +453,11 @@ namespace Folder_crawling
         }
 
         private void placeholder_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void curTime_Click(object sender, EventArgs e)
         {
 
         }
