@@ -16,6 +16,7 @@ namespace Folder_crawling
         string target;
         bool allOccurence;
         List<string> pathFile;
+
         
         public void DFS_method(string root, string target, Graph listDirectory, ref bool search, List<string> listAns, bool allOcurence, ref List<string> fullPath)
         {
@@ -38,11 +39,29 @@ namespace Folder_crawling
             foreach (string dir in subDir)
             {
                 wait(500);
+                DirectoryInfo directoryInfo = new DirectoryInfo(dir);
+                DirectoryInfo rootInfo = new DirectoryInfo(root);
+                listDirectory.AddEdge(root, dir);
+                listDirectory.FindNode(root).LabelText = rootInfo.Name;
+                listDirectory.FindNode(dir).LabelText = directoryInfo.Name;
+            }
+            show(viewer, listDirectory);
+            foreach (string dir in subDir)
+            {
+                wait(500);
                 if (search && !allOcurence)
                 {
                     return;
                 }
-                ChangeLabel(listDirectory, root, dir);
+                Node now = listDirectory.FindNode(dir);
+                //color the curNode, edge, and sourceNode
+                foreach (Edge inEdge in now.InEdges)
+                {
+                    wait(500);
+                    inEdge.Attr.Color = Color.Red;
+                    now.Attr.Color = Color.Red;
+                    inEdge.SourceNode.Attr.Color = Color.Red;
+                }
                 show(viewer, listDirectory);
                 DFS_method(dir, target, listDirectory, ref search, listAns, allOcurence, ref fullPath);
             }
@@ -115,8 +134,7 @@ namespace Folder_crawling
                     ChangeLabel(listDirectory, dir, file);
                     if (fileInfo.Exists && fileInfo.Name == target)
                     {
-                        string s = fileInfo.FullName;
-                        fullPath.Add(s);
+                        fullPath.Add(file);
                         listAns.Add(file);
                         if (!allOcurence)
                         {
