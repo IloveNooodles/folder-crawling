@@ -13,8 +13,11 @@ Project ini dibentuk dalam memenuhi tugas besar IF2211 Strategi Algoritma, beris
 ## Link
 
 [Spesifikasi Tugas](https://informatika.stei.itb.ac.id/~rinaldi.munir/Stmik/2021-2022/Tugas-Besar-2-IF2211-Strategi-Algoritma-2022.pdf)
+
 [Figma Design](https://www.figma.com/file/8awvL6zCqxTT1GxCeOd6oC/TUBES-2-STIMA?node-id=0%3A1)
+
 [Video Penjelasan](https://youtu.be/DlnykBm4duk)
+
 [Laporan](https://drive.google.com/file/d/1kA2Tj1rC2ORhYn5rodNZph3e3q03YGYe/view?usp=sharing)
 
 ## Screenshot
