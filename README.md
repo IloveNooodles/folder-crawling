@@ -18,6 +18,7 @@ Project ini dibentuk dalam memenuhi tugas besar IF2211 Strategi Algoritma, beris
 [Laporan](https://drive.google.com/file/d/1kA2Tj1rC2ORhYn5rodNZph3e3q03YGYe/view?usp=sharing)
 
 ## Screenshot
+![image](https://user-images.githubusercontent.com/71829426/159964662-7f887d40-3a89-4752-a968-f3f87176fb9a.png)
 
 ## Program Requirements
 - Windows
