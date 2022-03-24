@@ -16,6 +16,7 @@ namespace Folder_crawling
         string target;
         bool allOccurence;
         List<string> pathFile;
+
         
         public void DFS_method(string root, string target, Graph listDirectory, ref bool search, List<string> listAns, bool allOcurence, ref List<string> fullPath)
         {
@@ -37,12 +38,28 @@ namespace Folder_crawling
             //traverse deeper to the root folder
             foreach (string dir in subDir)
             {
-                wait(500);
+                DirectoryInfo directoryInfo = new DirectoryInfo(dir);
+                DirectoryInfo rootInfo = new DirectoryInfo(root);
+                listDirectory.AddEdge(root, dir);
+                listDirectory.FindNode(root).LabelText = rootInfo.Name;
+                listDirectory.FindNode(dir).LabelText = directoryInfo.Name;
+            }
+            show(viewer, listDirectory);
+            foreach (string dir in subDir)
+            {
                 if (search && !allOcurence)
                 {
                     return;
                 }
-                ChangeLabel(listDirectory, root, dir);
+                Node now = listDirectory.FindNode(dir);
+                //color the curNode, edge, and sourceNode
+                foreach (Edge inEdge in now.InEdges)
+                {
+                    wait();
+                    inEdge.Attr.Color = Color.Red;
+                    now.Attr.Color = Color.Red;
+                    inEdge.SourceNode.Attr.Color = Color.Red;
+                }
                 show(viewer, listDirectory);
                 DFS_method(dir, target, listDirectory, ref search, listAns, allOcurence, ref fullPath);
             }
@@ -51,7 +68,7 @@ namespace Folder_crawling
             files = Directory.GetFiles(root);
             foreach (string file in files)
             {
-                wait(500);
+                wait();
                 if (search && !allOcurence)
                 {
                     return;
@@ -94,7 +111,7 @@ namespace Folder_crawling
                     //color the curNode, edge, and sourceNode
                     foreach (Edge inEdge in now.InEdges)
                     {
-                        wait(500);
+                        wait();
                         inEdge.Attr.Color = Color.Red;
                         now.Attr.Color = Color.Red;
                         inEdge.SourceNode.Attr.Color = Color.Red;
@@ -110,13 +127,12 @@ namespace Folder_crawling
                 //iterate all file in current Directory and process (addNode, addEdge, color the node and edge)
                 foreach (string file in files)
                 {
-                    wait(500);
+                    wait();
                     FileInfo fileInfo = new FileInfo(file);
                     ChangeLabel(listDirectory, dir, file);
                     if (fileInfo.Exists && fileInfo.Name == target)
                     {
-                        string s = fileInfo.FullName;
-                        fullPath.Add(s);
+                        fullPath.Add(file);
                         listAns.Add(file);
                         if (!allOcurence)
                         {
@@ -129,7 +145,7 @@ namespace Folder_crawling
                 //iterate all subdirectories in current Directory and process (addNode, addEdge)
                 foreach (string curDir in subDir)
                 {
-                    wait(500);
+                    wait();
                     DirectoryInfo directoryInfo = new DirectoryInfo(curDir);
                     listDirectory.AddEdge(dir, curDir);
                     listDirectory.FindNode(dir).LabelText = dirInfo.Name;
@@ -180,13 +196,12 @@ namespace Folder_crawling
                 show(viewer, listDirectory);
             }
         }
-        public void wait(int milliseconds)
+        public void wait()
         {
             var timer1 = new Timer();
-            if (milliseconds == 0 || milliseconds < 0) return;
 
             // Console.WriteLine("start wait timer");
-            timer1.Interval = milliseconds;
+            timer1.Interval = 500;
             timer1.Enabled = true;
             timer1.Start();
 
