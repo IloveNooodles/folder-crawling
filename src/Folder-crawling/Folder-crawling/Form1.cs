@@ -38,7 +38,6 @@ namespace Folder_crawling
             //traverse deeper to the root folder
             foreach (string dir in subDir)
             {
-                wait(500);
                 DirectoryInfo directoryInfo = new DirectoryInfo(dir);
                 DirectoryInfo rootInfo = new DirectoryInfo(root);
                 listDirectory.AddEdge(root, dir);
@@ -48,7 +47,6 @@ namespace Folder_crawling
             show(viewer, listDirectory);
             foreach (string dir in subDir)
             {
-                wait(500);
                 if (search && !allOcurence)
                 {
                     return;
@@ -57,7 +55,7 @@ namespace Folder_crawling
                 //color the curNode, edge, and sourceNode
                 foreach (Edge inEdge in now.InEdges)
                 {
-                    wait(500);
+                    wait();
                     inEdge.Attr.Color = Color.Red;
                     now.Attr.Color = Color.Red;
                     inEdge.SourceNode.Attr.Color = Color.Red;
@@ -70,7 +68,7 @@ namespace Folder_crawling
             files = Directory.GetFiles(root);
             foreach (string file in files)
             {
-                wait(500);
+                wait();
                 if (search && !allOcurence)
                 {
                     return;
@@ -113,7 +111,7 @@ namespace Folder_crawling
                     //color the curNode, edge, and sourceNode
                     foreach (Edge inEdge in now.InEdges)
                     {
-                        wait(500);
+                        wait();
                         inEdge.Attr.Color = Color.Red;
                         now.Attr.Color = Color.Red;
                         inEdge.SourceNode.Attr.Color = Color.Red;
@@ -129,7 +127,7 @@ namespace Folder_crawling
                 //iterate all file in current Directory and process (addNode, addEdge, color the node and edge)
                 foreach (string file in files)
                 {
-                    wait(500);
+                    wait();
                     FileInfo fileInfo = new FileInfo(file);
                     ChangeLabel(listDirectory, dir, file);
                     if (fileInfo.Exists && fileInfo.Name == target)
@@ -147,7 +145,7 @@ namespace Folder_crawling
                 //iterate all subdirectories in current Directory and process (addNode, addEdge)
                 foreach (string curDir in subDir)
                 {
-                    wait(500);
+                    wait();
                     DirectoryInfo directoryInfo = new DirectoryInfo(curDir);
                     listDirectory.AddEdge(dir, curDir);
                     listDirectory.FindNode(dir).LabelText = dirInfo.Name;
@@ -198,13 +196,12 @@ namespace Folder_crawling
                 show(viewer, listDirectory);
             }
         }
-        public void wait(int milliseconds)
+        public void wait()
         {
             var timer1 = new Timer();
-            if (milliseconds == 0 || milliseconds < 0) return;
 
             // Console.WriteLine("start wait timer");
-            timer1.Interval = milliseconds;
+            timer1.Interval = 500;
             timer1.Enabled = true;
             timer1.Start();
 
