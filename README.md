@@ -29,5 +29,5 @@ Project ini dibentuk dalam memenuhi tugas besar IF2211 Strategi Algoritma, beris
 - C# & .NET Framework
 - MSAGL
 
-### copyright
+### Copyright
 2022 © C# C# di dinding. All Rights Reserved.
